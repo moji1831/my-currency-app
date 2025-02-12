@@ -118,12 +118,26 @@ body {
 }
 
 .container {
-  min-height: 80%;
+  min-height: 8%;
   padding: 1rem;
   transition: background-color 0.3s;
   border-radius: 15px;
   border: #1c5343 1px solid;
   animation: rotating-shadow 4s infinite linear;
+  
+
+
+    position: fixed;
+
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+ 
+
+
+
 }
 
 
@@ -342,23 +356,74 @@ input:checked + .slider:before {
 
 
 /* Responsive Design */
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
+  body {
+    padding: 10px;
+    display: block; /* تغییر از flex به block برای اسکرول بهتر */
+  }
+
+  .container {
+    position: relative; /* حذف fixed positioning */
+    transform: none;
+    min-height: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0.5rem;
+    animation: none; /* غیرفعال کردن انیمیشن برای عملکرد بهتر موبایل */
+  }
+
   .content-wrapper {
     padding: 0 0.5rem;
+    max-width: 100%;
+  }
+
+  .h1hello {
+    font-size: 2rem !important; /* کاهش سایز فونت */
+    line-height: 1.2;
+    margin: 0.5rem 0;
+  }
+
+  .header {
+    flex-direction: column-reverse; /* تغییر چیدمان به عمودی */
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .title {
+    font-size: 1rem;
   }
 
   .price-card {
     padding: 1rem;
+    min-height: auto;
   }
 
   .currency-value {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
-  .title {
-    font-size: 1.1rem;
+  .currency-icon {
+    width: 1.2rem;
+    height: 1.2rem;
   }
 
-  
+  .icon-container {
+    padding: 0.5rem;
+  }
+
+  .card-content {
+    gap: 0.75rem;
+  }
+
+  /* تنظیمات خاص برای نمایش متن‌های طولانی */
+  .currency-value {
+    word-break: break-all;
+    font-size: 0.9rem;
+  }
+
+  /* تنظیمات سوئیچ تاریک */
+  .switch {
+    transform: scale(0.8);
+  }
 }
 </style>
